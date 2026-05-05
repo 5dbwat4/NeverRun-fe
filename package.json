@@ -1,0 +1,46 @@
+{
+  "name": "notebookshelf-fe",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "type-check": "vue-tsc --build --force"
+  },
+  "dependencies": {
+    "@iconify-json/lucide": "^1.2.105",
+    "@iconify/css-vue": "^1.0.1",
+    "@iconify/unplugin": "^0.1.5",
+    "@nuxt/ui": "^4.3.0",
+    "@vitejs/plugin-vue": "^6.0.3",
+    "@vitejs/plugin-vue-jsx": "^5.1.3",
+    "@vueuse/core": "^14.2.0",
+    "copy-to-clipboard": "^4.0.2",
+    "crypto-js": "^4.2.0",
+    "github-markdown-css": "^5.8.1",
+    "pinia": "^3.0.4",
+    "sanitize-html": "^2.17.1",
+    "tailwindcss": "^4.2.1",
+    "typescript": "^5.9.3",
+    "unplugin-auto-import": "^21.0.0",
+    "vite": "^7.3.1",
+    "vue": "^3.4.29",
+    "vue-router": "^4.3.3"
+  },
+  "devDependencies": {
+    "@tsconfig/node20": "^20.1.4",
+    "@types/better-sqlite3": "^7.6.13",
+    "@types/cors": "^2.8.19",
+    "@types/express": "^5.0.6",
+    "@types/node": "^20.14.5",
+    "@types/sanitize-html": "^2.16.1",
+    "@vue/tsconfig": "^0.5.1",
+    "tsx": "^4.21.0",
+    "unplugin-icons": "^23.0.1",
+    "unplugin-vue-router": "^0.19.2",
+    "vue-tsc": "^2.0.21"
+  },
+  "packageManager": "pnpm@10.30.3+sha512.c961d1e0a2d8e354ecaa5166b822516668b7f44cb5bd95122d590dd81922f606f5473b6d23ec4a5be05e7fcd18e8488d47d978bbe981872f1145d06e9a740017"
+}

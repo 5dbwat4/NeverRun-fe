@@ -1,18 +1,14 @@
 <template>
-  <section class="index-page">
-    <header class="heading-row">
-      <h2>Now let's run</h2>
+  <section class="w-[min(980px,100%)] mx-auto">
+    <header class="flex items-center justify-between mb-4">
+      <h2 class="m-0 text-[1.3rem] font-monomakh">Now let's run</h2>
     </header>
 
     <UCard>
-      <div v-if="runsCount > 0" class="runs-summary">
-        <UIcon name="i-lucide-footprints" class="runs-icon" />
-        You have run <strong>{{ runsCount }}</strong> times this term.
+      <div v-if="runsCount > 0" class="flex items-center gap-[0.4em] px-3 py-2.5 mb-3 rounded-[0.6rem] bg-ns-surface-soft text-ns-text text-[0.9rem] font-dm-sans">
+        <UIcon name="i-lucide-footprints" class="shrink-0 text-[1.1em] text-ns-text-strong" />
+        You have run <strong class="text-ns-text-strong font-bold">{{ runsCount }}</strong> times this term.
       </div>
-
-     <!-- <p class="desc">
-        The procedure contains 2 steps: get a sportId &amp; submit the sport. You can submit the sport any time you want, the only requirement is it should be 30min after you get the sportId.
-      </p>-->
 
       <UTabs :items="tabs" class="w-full">
         <template #sport-id>
@@ -36,24 +32,24 @@
               class="mb-3"
             />
 
-            <div v-if="sportResult" class="sport-result">
-              <div class="result-row">
-                <span class="result-label">sportId</span>
-                <span class="result-value result-sport-id">{{ sportResult.sport_id }}</span>
+            <div v-if="sportResult" class="flex flex-col">
+              <div class="flex items-start py-1.5">
+                <span class="w-[100px] shrink-0 text-ns-muted text-[0.9rem] font-dm-sans">sportId</span>
+                <span class="text-ns-text text-[0.9rem] font-dm-sans font-roboto-mono break-all">{{ sportResult.sport_id }}</span>
               </div>
-              <div class="result-row">
-                <span class="result-label">timestamp</span>
-                <span class="result-value">{{ sportResult.timestamp }}</span>
+              <div class="flex items-start py-1.5">
+                <span class="w-[100px] shrink-0 text-ns-muted text-[0.9rem] font-dm-sans">timestamp</span>
+                <span class="text-ns-text text-[0.9rem] font-dm-sans">{{ sportResult.timestamp }}</span>
               </div>
-              <div class="action-row">
-              <UButton icon="i-lucide-copy" variant="outline" size="sm" @click="copyPayload">
-                Copy
-              </UButton>
-              <UButton icon="i-lucide-rotate-cw" variant="outline" size="sm" @click="sportResult = null">
-                Again
-              </UButton>
-            </div>
-              <p class="mt-3 text-[0.9rem] text-[--ns-muted] font-['DM_Sans',system-ui]">
+              <div class="flex gap-2 my-2">
+                <UButton icon="i-lucide-copy" variant="outline" size="sm" @click="copyPayload">
+                  Copy
+                </UButton>
+                <UButton icon="i-lucide-rotate-cw" variant="outline" size="sm" @click="sportResult = null">
+                  Again
+                </UButton>
+              </div>
+              <p class="mt-3 text-[0.9rem] text-ns-muted font-dm-sans">
                 Take a break and get a coffee. None of your personal info is stored in remote server, so it will not auto submit for you. But you can submit the sport any time you want.
               </p>
             </div>
@@ -74,7 +70,7 @@
           />
 
           <UCard v-else>
-            <p class="tab-desc">Select an existing sport ID, or input your payload.</p>
+            <p class="mb-3 text-ns-muted leading-relaxed font-dm-sans">Select an existing sport ID, or input your payload.</p>
 
             <div v-if="unusedIds.length > 0" class="mb-3">
               <URadioGroup
@@ -115,7 +111,7 @@
 
             <UCheckbox v-model="customizedRun" label="Customized run" class="mb-3" />
 
-            <UForm v-if="customizedRun" class="mb-3 space-y-4" >
+            <UForm v-if="customizedRun" class="mb-3 space-y-4">
               <UFormField label="Distance (km)">
                 <UInput v-model.number="distanceKm" type="number" step="0.1" min="0.1" class="w-full" :disabled="submitting" />
               </UFormField>
@@ -135,7 +131,7 @@
             >
               Submit
             </UButton>
-            <p v-if="submitError" class="mt-2 text-[0.9rem] text-[--ns-danger]">{{ submitError }}</p>
+            <p v-if="submitError" class="mt-2 text-[0.9rem] text-ns-danger">{{ submitError }}</p>
           </UCard>
         </template>
       </UTabs>
@@ -353,115 +349,7 @@ onMounted(() => {
 </script>
 
 <style scoped>
-.index-page {
-  width: min(980px, 100%);
-  margin: 0 auto;
-}
-
-.heading-row {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  margin-bottom: 1rem;
-}
-
-.heading-row h2 {
-  margin: 0;
-  font-size: 1.3rem;
-  font-family: 'Monomakh', system-ui;
-}
-
-.desc {
-  margin-bottom: 1rem;
-  color: var(--ns-muted);
-  line-height: 1.625;
-  font-family: 'DM Sans', system-ui;
-}
-
-.runs-summary {
-  display: flex;
-  align-items: center;
-  gap: 0.4em;
-  padding: 0.6rem 0.8rem;
-  margin-bottom: 0.8rem;
-  border-radius: 0.6rem;
-  background: var(--ns-surface-soft);
-  color: var(--ns-text);
-  font-size: 0.9rem;
-  font-family: 'DM Sans', system-ui;
-}
-
-.runs-icon {
-  flex-shrink: 0;
-  font-size: 1.1em;
-  color: var(--ns-text-strong);
-}
-
-.runs-summary strong {
-  color: var(--ns-text-strong);
-  font-weight: 700;
-}
-
-.runs-unit {
-  font-size: 0.8rem;
-  color: var(--ns-muted);
-}
-
-.runs-des {
-  font-size: 0.82rem;
-  color: var(--ns-muted);
-}
-
-.runs-tips {
-  font-size: 0.8rem;
-  color: var(--ns-muted);
-  opacity: 0.7;
-}
-
-.tab-desc {
-  margin-bottom: 0.8rem;
-  color: var(--ns-muted);
-  line-height: 1.625;
-  font-family: 'DM Sans', system-ui;
-}
-
-.sport-result {
-  display: flex;
-  flex-direction: column;
-  gap: 0;
-}
-
-.action-row {
-  display: flex;
-  gap: 0.5rem;
-}
-
-.result-row {
-  display: flex;
-  align-items: flex-start;
-  padding: 0.4rem 0;
-}
-
-.result-label {
-  width: 100px;
-  flex-shrink: 0;
-  color: var(--ns-muted);
-  font-size: 0.9rem;
-  font-family: 'DM Sans', system-ui;
-}
-
-.result-value {
-  color: var(--ns-text);
-  font-size: 0.9rem;
-  font-family: 'DM Sans', system-ui;
-  word-break: break-all;
-}
-
 .sport-id-group :deep(label) {
-  font-family: 'Roboto Mono', monospace;
-}
-
-.result-sport-id {
   font-family: 'Roboto Mono', monospace;
 }
 </style>

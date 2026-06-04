@@ -1,18 +1,16 @@
 <template>
   <div class="loader"></div>
-  <p class="loading-tips">It's always that...</p>
+  <p class="text-ns-muted text-sm font-dm-sans mt-2">It's always that...</p>
 </template>
 <script setup></script>
 <style scoped>
-
 .loader {
   width: 48px;
   height: 48px;
-  border: 3px solid #2818d5;
+  border: 3px solid var(--ns-link);
   border-radius: 50%;
   display: inline-block;
   position: relative;
-  -webkit-animation: rotation 1s linear infinite;
   animation: rotation 1s linear infinite;
 }
 .loader:after {
@@ -25,32 +23,10 @@
   height: 40px;
   border-radius: 50%;
   border: 3px solid;
-  border-color: #0c0542 transparent;
-}
-@-webkit-keyframes rotation {
-  0% {
-    transform: rotate(0);
-  }
-  100% {
-    transform: rotate(360deg);
-  }
+  border-color: var(--ns-text-strong) transparent;
 }
 @keyframes rotation {
-  0% {
-    transform: rotate(0);
-  }
-  100% {
-    transform: rotate(360deg);
-  }
-}
-#app {
-  min-height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-  padding-top: 2rem;
-  padding-bottom: 2rem;
-  box-sizing: border-box;
+  0% { transform: rotate(0); }
+  100% { transform: rotate(360deg); }
 }
 </style>

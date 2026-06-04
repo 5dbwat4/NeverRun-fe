@@ -1,33 +1,33 @@
 <template>
-  <section class="manage-page">
-    <header class="heading-row">
-      <h2>Manage stored info</h2>
+  <section class="w-[min(980px,100%)] mx-auto">
+    <header class="flex items-center justify-between mb-4">
+      <h2 class="m-0 text-[1.3rem] font-monomakh">Manage stored info</h2>
     </header>
 
     <UCard>
       <template #header>
-        <h3 class="card-title">Auth</h3>
+        <h3 class="m-0 text-base font-monomakh">Auth</h3>
       </template>
 
-      <div class="info-table">
-        <div class="info-row">
-          <span class="info-label">Username</span>
-          <span class="info-value">{{ store.username || '(not set)' }}</span>
+      <div class="flex flex-col">
+        <div class="flex items-start py-2.5 border-b border-ns-border">
+          <span class="w-[120px] shrink-0 text-ns-muted text-[0.9rem] font-dm-sans">Username</span>
+          <span class="text-ns-text text-[0.9rem] font-dm-sans break-all">{{ store.username || '(not set)' }}</span>
         </div>
-        <div class="info-row">
-          <span class="info-label">Password</span>
-          <span class="info-value">{{ store.hasPassword ? '*****' : '(not offered)' }}</span>
+        <div class="flex items-start py-2.5 border-b border-ns-border">
+          <span class="w-[120px] shrink-0 text-ns-muted text-[0.9rem] font-dm-sans">Password</span>
+          <span class="text-ns-text text-[0.9rem] font-dm-sans break-all">{{ store.hasPassword ? '*****' : '(not offered)' }}</span>
         </div>
-        <div class="info-row token-row">
-          <span class="info-label">JWT Token</span>
-          <span class="info-value token-value" @click="toggleToken">
+        <div class="flex items-start py-2.5">
+          <span class="w-[120px] shrink-0 text-ns-muted text-[0.9rem] font-dm-sans">JWT Token</span>
+          <span class="text-ns-text text-[0.9rem] font-dm-sans break-all cursor-pointer select-none transition-colors duration-200 hover:text-ns-link" @click="toggleToken">
             <template v-if="tokenRevealed">{{ store.token || '(not set)' }}</template>
             <template v-else>{{ maskedToken }}</template>
           </span>
         </div>
       </div>
 
-      <div class="actions">
+      <div class="flex gap-2.5 mt-4">
         <UButton v-if="store.hasPassword" icon="i-lucide-refresh-cw" variant="outline" :loading="refetching" @click="refetchToken">
           Refetch token
         </UButton>
@@ -36,17 +36,17 @@
         </UButton>
       </div>
 
-      <p v-if="error" class="mt-2 text-[0.9rem] text-[--ns-danger]">{{ error }}</p>
+      <p v-if="error" class="mt-2 text-[0.9rem] text-ns-danger">{{ error }}</p>
     </UCard>
 
     <UCard class="mt-4">
       <template #header>
-        <h3 class="card-title">Stored sports</h3>
+        <h3 class="m-0 text-base font-monomakh">Stored sports</h3>
       </template>
 
-      <p class="sport-summary">You have <strong>{{ store.sportIdsCount }}</strong> stored sport record{{ store.sportIdsCount === 1 ? '' : 's' }}.</p>
+      <p class="text-ns-text text-[0.9rem] font-dm-sans">You have <strong>{{ store.sportIdsCount }}</strong> stored sport record{{ store.sportIdsCount === 1 ? '' : 's' }}.</p>
 
-      <div class="actions">
+      <div class="flex gap-2.5 mt-4">
         <UButton icon="i-lucide-trash-2" color="error" variant="outline" :loading="clearingSports" :disabled="store.sportIdsCount === 0" @click="removeAllSports">
           Remove all
         </UButton>
@@ -145,82 +145,3 @@ function removeUsed() {
   clearingUsed.value = false
 }
 </script>
-
-<style scoped>
-.manage-page {
-  width: min(980px, 100%);
-  margin: 0 auto;
-}
-
-.heading-row {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  margin-bottom: 1rem;
-}
-
-.heading-row h2 {
-  margin: 0;
-  font-size: 1.3rem;
-  font-family: 'Monomakh', system-ui;
-}
-
-.card-title {
-  margin: 0;
-  font-size: 1rem;
-  font-family: 'Monomakh', system-ui;
-}
-
-.info-table {
-  display: flex;
-  flex-direction: column;
-}
-
-.info-row {
-  display: flex;
-  align-items: flex-start;
-  padding: 0.6rem 0;
-  border-bottom: 1px solid var(--ns-border);
-}
-
-.info-row:last-child {
-  border-bottom: none;
-}
-
-.info-label {
-  width: 120px;
-  flex-shrink: 0;
-  color: var(--ns-muted);
-  font-size: 0.9rem;
-  font-family: 'DM Sans', system-ui;
-}
-
-.info-value {
-  color: var(--ns-text);
-  font-size: 0.9rem;
-  font-family: 'DM Sans', system-ui;
-  word-break: break-all;
-}
-
-.token-value {
-  cursor: pointer;
-  user-select: none;
-  transition: color 0.2s;
-}
-
-.token-value:hover {
-  color: var(--ns-link);
-}
-
-.actions {
-  display: flex;
-  gap: 0.6rem;
-  margin-top: 1rem;
-}
-
-.sport-summary {
-  color: var(--ns-text);
-  font-size: 0.9rem;
-  font-family: 'DM Sans', system-ui;
-}
-</style>

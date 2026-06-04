@@ -1,5 +1,64 @@
 @import "./fonts/def.css";
 
-
 @import "tailwindcss";
 @import "@nuxt/ui";
+
+@variant dark (&:where(.dark, .dark *));
+
+:root {
+  --ns-bg: #fff;
+  --ns-surface: rgba(255, 255, 255, 0.9);
+  --ns-surface-soft: rgba(255, 255, 255, 0.58);
+  --ns-surface-hover: rgba(250, 253, 252, 1);
+  --ns-border: #9eb4ad;
+  --ns-text: #1f3b33;
+  --ns-text-strong: #113e34;
+  --ns-muted: #4c665f;
+  --ns-link: #1f7d64;
+  --ns-danger: #b7354d;
+  --ns-success: #198754;
+  --ns-error: #cc334d;
+  --ns-warning: #8d7a33;
+  --ns-mark-bg: rgba(255, 206, 91, 0.55);
+  --ns-mark-text: #173f31;
+}
+
+.dark {
+  --ns-bg: #111;
+  --ns-surface: rgba(19, 28, 25, 0.92);
+  --ns-surface-soft: rgba(17, 25, 23, 0.82);
+  --ns-surface-hover: rgba(24, 34, 31, 0.95);
+  --ns-border: #36524a;
+  --ns-text: #dcebe6;
+  --ns-text-strong: #effaf5;
+  --ns-muted: #9fbbb2;
+  --ns-link: #7dd6b8;
+  --ns-danger: #ff8da2;
+  --ns-success: #3dd68c;
+  --ns-error: #ff6b7f;
+  --ns-warning: #e2c450;
+  --ns-mark-bg: rgba(255, 202, 82, 0.35);
+  --ns-mark-text: #fff3cd;
+}
+
+@theme {
+  --color-ns-bg: var(--ns-bg);
+  --color-ns-surface: var(--ns-surface);
+  --color-ns-surface-soft: var(--ns-surface-soft);
+  --color-ns-surface-hover: var(--ns-surface-hover);
+  --color-ns-border: var(--ns-border);
+  --color-ns-text: var(--ns-text);
+  --color-ns-text-strong: var(--ns-text-strong);
+  --color-ns-muted: var(--ns-muted);
+  --color-ns-link: var(--ns-link);
+  --color-ns-danger: var(--ns-danger);
+  --color-ns-success: var(--ns-success);
+  --color-ns-error: var(--ns-error);
+  --color-ns-warning: var(--ns-warning);
+  --color-ns-mark-bg: var(--ns-mark-bg);
+  --color-ns-mark-text: var(--ns-mark-text);
+
+  --font-monomakh: "Monomakh", system-ui;
+  --font-dm-sans: "DM Sans", system-ui;
+  --font-roboto-mono: "Roboto Mono", monospace;
+}

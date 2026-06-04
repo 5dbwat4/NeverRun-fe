@@ -1,7 +1,7 @@
 <template>
-  <section class="about-page">
-    <header class="heading-row">
-      <h2>FAQs</h2>
+  <section class="w-[min(980px,100%)] mx-auto">
+    <header class="flex items-center justify-between mb-4">
+      <h2 class="m-0 text-[1.3rem] font-monomakh">FAQs</h2>
     </header>
     <UCard>
       <div class="markdown-body">
@@ -20,28 +20,4 @@
 </template>
 <script setup>
 import "github-markdown-css/github-markdown.css";
-/**
-
-
-
- */
 </script>
-<style scoped>
-.about-page {
-  width: min(980px, 100%);
-  margin: 0 auto;
-}
-
-.heading-row {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  margin-bottom: 1rem;
-}
-
-.heading-row h2 {
-  margin: 0;
-  font-size: 1.3rem;
-  font-family: "Monomakh", system-ui;
-}
-</style>

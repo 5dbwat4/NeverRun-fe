@@ -1,25 +1,25 @@
 <template>
   <UCard>
     <template #header>
-      <h3 class="running-title">Running</h3>
+      <h3 class="m-0 text-base font-monomakh">Running</h3>
     </template>
 
-    <div class="running-info">
-      <div class="info-row">
-        <span class="info-label">sportId</span>
-        <span class="info-value font-mono">{{ sportId }}</span>
+    <div class="flex flex-col">
+      <div class="flex items-start py-1">
+        <span class="w-20 shrink-0 text-ns-muted text-[0.9rem] font-dm-sans">sportId</span>
+        <span class="text-ns-text text-[0.9rem] font-dm-sans break-all font-roboto-mono">{{ sportId }}</span>
       </div>
-      <div class="info-row">
-        <span class="info-label">time</span>
-        <span class="info-value">{{ timestamp }}</span>
+      <div class="flex items-start py-1">
+        <span class="w-20 shrink-0 text-ns-muted text-[0.9rem] font-dm-sans">time</span>
+        <span class="text-ns-text text-[0.9rem] font-dm-sans">{{ timestamp }}</span>
       </div>
     </div>
 
-    <UTimeline :items="timelineItems" :model-value="String(activeIndex)" size="sm" class="mt-3" >
+    <UTimeline :items="timelineItems" :model-value="String(activeIndex)" size="sm" class="mt-3">
       <template #description="{ item }">
-        <pre v-if="item.description" class="description text-xs text-muted mt-1" >{{ item.description }}</pre>
-        </template>
-      </UTimeline>
+        <pre v-if="item.description" class="text-xs text-ns-muted mt-1 whitespace-pre-line">{{ item.description }}</pre>
+      </template>
+    </UTimeline>
 
     <UAlert
       v-if="runError"
@@ -44,7 +44,7 @@
 </template>
 
 <script setup lang="ts">
-import { ref, watch } from 'vue'
+import { ref } from 'vue'
 import type { TimelineItem } from '@nuxt/ui'
 
 const props = defineProps<{
@@ -116,45 +116,3 @@ function onSSEEvent(event: { type: string; step: string; message: string }) {
 
 defineExpose({ onSSEEvent })
 </script>
-
-<style scoped>
-.running-title {
-  margin: 0;
-  font-size: 1rem;
-  font-family: 'Monomakh', system-ui;
-}
-
-.running-info {
-  display: flex;
-  flex-direction: column;
-}
-
-.info-row {
-  display: flex;
-  align-items: flex-start;
-  padding: 0.3rem 0;
-}
-
-.info-label {
-  width: 80px;
-  flex-shrink: 0;
-  color: var(--ns-muted);
-  font-size: 0.9rem;
-  font-family: 'DM Sans', system-ui;
-}
-
-.info-value {
-  color: var(--ns-text);
-  font-size: 0.9rem;
-  font-family: 'DM Sans', system-ui;
-  word-break: break-all;
-}
-
-.font-mono {
-  font-family: 'Roboto Mono', monospace;
-}
-
-:deep(.description) {
-  white-space: pre-line;
-}
-</style>

@@ -49,7 +49,7 @@
               <br />
               Finish the ZJUAM official login process, and then copy the entire HTML source content of the final page (It should be look like a blank page) and paste it into the textarea below.
               <br />
-              That data only contains: 1. your username, and 2. the JWT token used for authentication.
+              That data only contains: 1. your username, and 2. the JWT token used for authentication, only ZDTY, and will expire in a time.
             </p>
             <UForm class="setup-form" :state="tokenState" :validate="validateToken" :validate-on="['blur']" @submit="saveToken">
               <UFormField label="HTML Source" name="token" required>
@@ -69,7 +69,7 @@
         </template>
       </UTabs>
 
-      <p class="mt-4 text-[0.83rem] text-[--ns-muted] opacity-75 font-['DM_Sans',system-ui]">Your username and password will be sent to the server, and we will not store them. For more view Privacy &amp; Terms page.</p>
+      <p class="mt-4 text-[0.83rem] text-[--ns-muted] opacity-75 font-['DM_Sans',system-ui]">Your credentials will be sent to the server, and we will NOT store them.</p>
     </UCard>
 
     <UCard v-if="verifiedUser">

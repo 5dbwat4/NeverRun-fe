@@ -12,6 +12,7 @@ export {}
 /* prettier-ignore */
 declare module 'vue' {
   export interface GlobalComponents {
+    ColorModeSwitch: typeof import('./src/components/ColorModeSwitch.vue')['default']
     Fallback: typeof import('./src/components/fallback.vue')['default']
     Loading: typeof import('./src/components/loading.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
@@ -41,6 +42,7 @@ declare module 'vue' {
 
 // For TSX support
 declare global {
+  const ColorModeSwitch: typeof import('./src/components/ColorModeSwitch.vue')['default']
   const Fallback: typeof import('./src/components/fallback.vue')['default']
   const Loading: typeof import('./src/components/loading.vue')['default']
   const RouterLink: typeof import('vue-router')['RouterLink']

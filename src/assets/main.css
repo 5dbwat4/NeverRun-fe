@@ -1,6 +1,7 @@
 @import "./fonts/def.css";
 
 @import "tailwindcss";
+@plugin "@tailwindcss/typography";
 @import "@nuxt/ui";
 
 @variant dark (&:where(.dark, .dark *));

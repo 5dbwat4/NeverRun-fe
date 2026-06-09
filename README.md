@@ -4,7 +4,7 @@
 
 **CONTACT ME if you need a backend server for the project**
 
-本项目后端暂不开源，可以联系我以获取内测版后端地址。
+本项目后端暂不开源，确有需求的话可以联系我以获取内测版后端地址。
 
 screenshots:
 

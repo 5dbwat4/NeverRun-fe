@@ -5,8 +5,8 @@
     </header>
     <UCard>
       <div class="prose dark:prose-invert max-w-none">
-        <p>Special thanks to @eWloYW8, who first come up with a ZDTY Reverse idea and a python script. The NeverRun project is built on this foundation.</p>
-        <p>BTW, you can also try to reverse it. It's a little challenging but doable.</p>
+        <p>Obtained by reverse-engineering the zdty app.</p>
+        <p>You can also try to reverse it. It's a little challenging but doable.</p>
         <h2>1. Will you steal my data?</h2>
         <p>No, all your data will not be stored in server. We are committed to protecting your privacy and ensuring that your information is secure. Everything persists locally on your device.</p>
         <h2>2. Can you tell me how NeverRun works?</h2>

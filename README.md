@@ -1,10 +1,10 @@
 # Neverrun
 
-**backend is not OSS.**
+**Stay tuned. The backend may be open-sourced soon.**
 
-**CONTACT ME if you need a backend server for the project**
+**后端代码将在近期视情况开源。**
 
-本项目后端暂不开源，确有需求的话可以联系我以获取内测版后端地址。
+https://doomshriek.5dbwat4.top/neverrun-saas/
 
 screenshots:
 
